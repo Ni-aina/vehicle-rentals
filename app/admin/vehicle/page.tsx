@@ -2,7 +2,7 @@
 const Vehicle = ()=> {
     return (
         <div className="uppercase"> 
-           Vehicle page 
+           Vehicle 
         </div>
     )
 }

@@ -4,11 +4,11 @@ import {
     CarFront, 
     LayoutDashboardIcon, 
     Menu, 
-    Save,
-    TrainFront
+    Save
 } from "lucide-react"
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const Sidebar = ()=> {
 
@@ -31,8 +31,14 @@ export const Sidebar = ()=> {
                     <Menu />
                 </button>
             </div>
-            <div className={`flex justify-center ${isFullScreen ? 'my-3' : 'my-1'}`}>
-                <TrainFront size={70} />
+            <div className="flex justify-center mt-3 mb-2">
+                <Image 
+                    className="rounded-full"
+                    src="/logo/car.png"
+                    alt="light-logo"
+                    width={140} 
+                    height={100}
+                />
             </div>
             <div className="flex">
                 <ul>
