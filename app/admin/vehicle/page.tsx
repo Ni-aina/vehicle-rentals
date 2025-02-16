@@ -1,7 +1,7 @@
 
 const Vehicle = ()=> {
     return (
-        <div> 
+        <div className="uppercase"> 
            Vehicle page 
         </div>
     )

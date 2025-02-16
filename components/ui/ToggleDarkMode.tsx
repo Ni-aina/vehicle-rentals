@@ -5,8 +5,14 @@ import { useEffect, useState } from "react";
 
 export const ToggleDarkMode = ()=> {
 
-  const [isDarkMode, setIsDarkMode] = useState(()=> localStorage.getItem("isDarkMode") || "light");
+  const [isDarkMode, setIsDarkMode] = useState("light");
+  
   const toggleDarkMode = ()=> setIsDarkMode(prevMode => prevMode === "light" ? "dark" : "light");
+
+  useEffect(() => {
+    const savedMode = typeof window ? localStorage.getItem("isDarkMode") : "light";
+    setIsDarkMode(savedMode || "light");
+  }, []);
 
   useEffect(()=> {
     if (isDarkMode === "dark") {

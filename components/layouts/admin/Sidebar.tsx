@@ -4,10 +4,9 @@ import {
     CarFront, 
     LayoutDashboardIcon, 
     Menu, 
-    Save, 
-    UserCircle 
+    Save,
+    TrainFront
 } from "lucide-react"
-import { ToggleDarkMode } from "./ui/ToggleDarkMode"
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -27,17 +26,13 @@ export const Sidebar = ()=> {
     
     return (
         <div className={`bg-border h-screen p-4 ${isFullScreen ? 'w-72' : 'w-14'}`}>
-            <div className="flex justify-between">
-                {
-                    isFullScreen &&
-                    <ToggleDarkMode />
-                }
+            <div className="flex justify-end">
                 <button onClick={toggleFullScreen}>
                     <Menu />
                 </button>
             </div>
-            <div className={`flex justify-center ${isFullScreen ? 'my-5' : 'my-2'}`}>
-                <UserCircle size={70} />
+            <div className={`flex justify-center ${isFullScreen ? 'my-3' : 'my-1'}`}>
+                <TrainFront size={70} />
             </div>
             <div className="flex">
                 <ul>

@@ -1,15 +1,19 @@
 import { ReactNode } from "react";
-import { Sidebar } from "../components/Sidebar";
+import { Sidebar } from "@/components/layouts/admin/Sidebar";
+import { NavBar } from "@/components/layouts/admin/Navbar";
 
-const RootLayout = ({ children } : { children: ReactNode}) => {
+const AdminLayout = ({ children } : { children: ReactNode}) => {
     return (
-        <main className="grid auto-cols-max grid-flow-col">
+        <main className="grid grid-cols-[auto_1fr]">
             <Sidebar />
-            <div className="p-4">
-                {children} 
-            </div>
+            <section className="p-4">
+                <NavBar />
+                <div className="mt-10">
+                    {children} 
+                </div>
+            </section>
         </main>
     );
 }
 
-export default RootLayout;
+export default AdminLayout;

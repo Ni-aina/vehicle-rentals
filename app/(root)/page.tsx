@@ -1,4 +1,4 @@
-import { ToggleDarkMode } from "../components/ui/ToggleDarkMode";
+import { ToggleDarkMode } from "@/components/ui/ToggleDarkMode";
 
 const Home = ()=> {
 
