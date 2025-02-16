@@ -1,7 +1,7 @@
 
 const Dashboard = ()=> {
     return (
-        <div className="uppercase"> 
+        <div> 
            Dashboard 
         </div>
     )

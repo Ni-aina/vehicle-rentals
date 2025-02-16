@@ -1,7 +1,7 @@
 
 const Reservation = ()=> {
     return (
-        <div className="uppercase"> 
+        <div> 
            Reservation 
         </div>
     )

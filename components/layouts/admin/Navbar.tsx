@@ -18,10 +18,10 @@ export const NavBar = () => {
             <div className="flex flex-wrap items-center gap-3">
                 <ToggleDarkMode />
                 <div className="flex flex-wrap gap-3">
-                    <UserCircle />
+                    <UserCircle size={20} />
                     <p className="hidden md:block">Ni aina</p>
                     <button onClick={handleLogOut}>
-                        <LogOut/>
+                        <LogOut size={20} />
                     </button>
                 </div>
             </div>

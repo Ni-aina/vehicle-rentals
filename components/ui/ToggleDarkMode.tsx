@@ -29,7 +29,7 @@ export const ToggleDarkMode = ()=> {
 
   return (
     <button onClick={toggleDarkMode}>
-        {isDarkMode === "light" ? <Sun /> : <Moon />}
+        {isDarkMode === "light" ? <Sun size={20} /> : <Moon size={20} />}
     </button>
   );
 }
