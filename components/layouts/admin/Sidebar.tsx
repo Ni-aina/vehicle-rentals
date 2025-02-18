@@ -1,18 +1,46 @@
 "use client";
 
 import { 
+    BookCheck,
     CarFront, 
+    ChevronLeft, 
+    ChevronRight, 
+    Layers2, 
     LayoutDashboardIcon, 
+    List, 
     Menu, 
-    Save
+    Save,
+    Settings
 } from "lucide-react"
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useReducer, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+interface State {
+    openVehicles: boolean;
+    openSettings: boolean;
+  } 
+const initialState: State = {
+    openVehicles: false,
+    openSettings: false
+}
+
+const reducers = (state: State, action: { type: string })=> {
+    switch(action.type) {
+        case "TOGGLE_VEHICLES": return { ...state, openVehicles: !state.openVehicles }
+        case "TOGGLE_SETTINGS": return { ...state, openSettings: !state.openSettings }
+        default: return state
+    }
+}
 
 export const Sidebar = ()=> {
 
+    const pathname = usePathname();
+    const [openMenu, dispatch] = useReducer(reducers, initialState);
+    
     const [isFullScreen, setIsFullScreen] = useState<boolean>();
+    const linkStyle = `flex items-center text-lg hover:text-pink-600 ${isFullScreen && 'gap-3'}`;
     
     const toggleFullScreen = ()=> setIsFullScreen(prev => !prev);
 
@@ -51,23 +79,60 @@ export const Sidebar = ()=> {
             <div className="flex">
                 <ul>
                     <li className="mt-4">
-                        <Link href="/admin" className="flex items-center text-lg">
-                            <LayoutDashboardIcon size={20} className="me-2" />
+                        <Link href="/admin" className={`${linkStyle} ${pathname==="/admin" && "text-pink-600"}`}>
+                            <LayoutDashboardIcon size={20} />
                             {isFullScreen && "Dashboard"}
                         </Link>
                     </li>
                     <li className="mt-4">
-                        <Link href="/admin/reservation" className="flex items-center text-lg">
-                            <Save size={20} className="me-2" />
-                            {isFullScreen && "Reservation"}
+                        <Link href="/admin/reservations" className={`${linkStyle} ${pathname==="/admin/reservations" && "text-pink-600"}`}>
+                            <Save size={20} />
+                            {isFullScreen && "Reservations"}
                         </Link>
                     </li>
                     <li className="mt-4">
-                        <Link href="/admin/vehicle" className="flex items-center text-lg">
-                            <CarFront size={20} className="me-2" />
-                            {isFullScreen && "Vehicle"}
+                        <Link href="/admin/invoices" className={`${linkStyle} ${pathname==="/admin/invoices" && "text-pink-600"}`}>
+                            <BookCheck size={20} />
+                            {isFullScreen && "Invoices"}
                         </Link>
                     </li>
+                    <div className="mt-4">
+                        <div 
+                            className={`cursor-pointer ${linkStyle} ${pathname.startsWith("/admin/vehicles") && "text-pink-600"}`}
+                            onClick={()=> dispatch({ type: "TOGGLE_VEHICLES"})}
+                        >
+                            <CarFront size={20} />
+                            {isFullScreen && "Vehicles"}
+                            {openMenu.openVehicles ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+                        </div>
+                        {
+                            openMenu.openVehicles &&
+                            <div className={`${isFullScreen ? 'pl-6' : 'pl-2'}`}>
+                                <li className="mt-2">
+                                    <Link href="/admin/vehicles/list" className={`${linkStyle} ${pathname==="/admin/vehicles/list" && "text-pink-600"}`}>
+                                        <List size={20} />
+                                        {isFullScreen && "Vehicle list"}
+                                    </Link>
+                                </li>
+                                <li className="mt-2">
+                                    <Link href="/admin/vehicles/categories" className={`${linkStyle} ${pathname==="/admin/vehicles/categories" && "text-pink-600"}`}>
+                                        <Layers2 size={20} />
+                                        {isFullScreen && "Categories"}
+                                    </Link>
+                                </li>
+                            </div>
+                        }
+                    </div>
+                    <div className="mt-4">
+                        <div 
+                            className={`cursor-pointer ${linkStyle} ${pathname==="/admin/settings" && "text-pink-600"}`}
+                            onClick={()=> dispatch({ type: "TOGGLE_SETTINGS"})}    
+                        >
+                            <Settings size={20} />
+                            {isFullScreen && "Settings"}
+                            {openMenu.openSettings ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>
