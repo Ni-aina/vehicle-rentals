@@ -5,12 +5,17 @@ import {
     CarFront, 
     ChevronLeft, 
     ChevronRight, 
+    IdCard, 
     Layers2, 
     LayoutDashboardIcon, 
     List, 
     Menu, 
     Save,
-    Settings
+    Settings,
+    SlidersVertical,
+    TypeOutline,
+    UserCircle,
+    Zap
 } from "lucide-react"
 import { useEffect, useLayoutEffect, useReducer, useState } from "react";
 import Link from "next/link";
@@ -61,7 +66,7 @@ export const Sidebar = ()=> {
     }, [])
     
     return (
-        <div className={`bg-border h-screen p-4 ${isFullScreen ? 'w-72' : 'w-14'}`}>
+        <div className={`bg-border h-screen overflow-auto ${isFullScreen ? 'w-72 p-7' : 'w-14 p-4'}`}>
             <div className="hidden md:flex justify-end">
                 <button onClick={toggleFullScreen}>
                     <Menu />
@@ -120,18 +125,53 @@ export const Sidebar = ()=> {
                                         {isFullScreen && "Categories"}
                                     </Link>
                                 </li>
+                                <li className="mt-2">
+                                    <Link href="/admin/vehicles/types" className={`${linkStyle} ${pathname==="/admin/vehicles/types" && "text-pink-600"}`}>
+                                        <TypeOutline size={20} />
+                                        {isFullScreen && "Types"}
+                                    </Link>
+                                </li>
+                                <li className="mt-2">
+                                    <Link href="/admin/vehicles/rapports" className={`${linkStyle} ${pathname==="/admin/vehicles/rapports" && "text-pink-600"}`}>
+                                        <SlidersVertical size={20} />
+                                        {isFullScreen && "Rapports"}
+                                    </Link>
+                                </li>
+                                <li className="mt-2">
+                                    <Link href="/admin/vehicles/engines" className={`${linkStyle} ${pathname==="/admin/vehicles/engines" && "text-pink-600"}`}>
+                                        <Zap size={20} />
+                                        {isFullScreen && "Engines"}
+                                    </Link>
+                                </li>
                             </div>
                         }
                     </div>
                     <div className="mt-4">
                         <div 
-                            className={`cursor-pointer ${linkStyle} ${pathname==="/admin/settings" && "text-pink-600"}`}
+                            className={`cursor-pointer ${linkStyle} ${pathname.startsWith("/admin/settings") && "text-pink-600"}`}
                             onClick={()=> dispatch({ type: "TOGGLE_SETTINGS"})}    
                         >
                             <Settings size={20} />
                             {isFullScreen && "Settings"}
                             {openMenu.openSettings ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
                         </div>
+                        {
+                            openMenu.openSettings &&
+                            <div className={`${isFullScreen ? 'pl-6' : 'pl-2'}`}>
+                                <li className="mt-2">
+                                    <Link href="/admin/settings/users" className={`${linkStyle} ${pathname==="/admin/settings/users" && "text-pink-600"}`}>
+                                        <IdCard size={20} />
+                                        {isFullScreen && "Users"}
+                                    </Link>
+                                </li>
+                                <li className="mt-2">
+                                    <Link href="/admin/settings/account" className={`${linkStyle} ${pathname==="/admin/settings/account" && "text-pink-600"}`}>
+                                        <UserCircle size={20} />
+                                        {isFullScreen && "Account"}
+                                    </Link>
+                                </li>
+                            </div>
+                        }
                     </div>
                 </ul>
             </div>
