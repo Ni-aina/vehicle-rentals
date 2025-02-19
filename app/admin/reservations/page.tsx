@@ -1,9 +1,13 @@
+import { Header } from "./_components/header";
+
 
 const Reservations = ()=> {
+
+
     return (
-        <div> 
-           Reservations
-        </div>
+        <> 
+           <Header />
+        </>
     )
 }
 
