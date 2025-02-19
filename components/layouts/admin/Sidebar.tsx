@@ -66,7 +66,7 @@ export const Sidebar = ()=> {
     }, [])
     
     return (
-        <div className={`bg-border h-screen overflow-auto ${isFullScreen ? 'w-72 p-7' : 'w-14 p-4'}`}>
+        <div className={`rounded-md bg-border min-h-screen max-h-screen overflow-auto ${isFullScreen ? 'w-72 p-7' : 'w-14 p-4'}`}>
             <div className="hidden md:flex justify-end">
                 <button onClick={toggleFullScreen}>
                     <Menu />
