@@ -55,10 +55,10 @@ const Dashboard = ()=> {
                 </div>
             </div>
             <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
-                <div className="bg-border rounded-md h-80">
+                <div className="bg-border rounded-md h-[400px]">
 
                 </div>
-                <div className="bg-border rounded-md h-80">
+                <div className="bg-border rounded-md h-[400px]">
 
                 </div>
             </div>

@@ -25,3 +25,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+table thead tr th {
+  text-align: left;
+}

@@ -10,12 +10,12 @@ export const Header = () => {
     const [inputSearch, setInputSearch] = useState("");
     const handleInputSearch = (value: string)=> setInputSearch(value);
     return (
-        <div className="flex flex-wrap justify-between gap-4 items-end">
+        <div className="flex flex-wrap justify-between gap-7 items-end">
             <div className="flex justify-center gap-3 items-center">
                 <AddButton link="/admin/reservations"/>
                 <h1 className="text-xl">Reservations</h1>
             </div>
-            <div className="flex flex-wrap gap-4 items-end">
+            <div className="flex flex-wrap gap-4 items-end flex-auto justify-end">
                 <InputText value={inputSearch} handleChange={handleInputSearch}/>
                 <div className="flex flex-wrap gap-3">
                     <div className="flex flex-wrap flex-col gap-3 items-start">
