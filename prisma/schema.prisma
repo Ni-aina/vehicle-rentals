@@ -1,0 +1,112 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(cuid())
+  name String?
+  gender String?
+  address String?
+  phone String?
+  image String?
+  role String[]
+  createdAt DateTime @default(now())
+  clerkId String
+
+  // Relations
+  reservations Reservation[]
+}
+
+model Category {
+  id String @id @default(cuid())
+  label String?
+  description String?
+  createdAt DateTime @default(now())
+
+  // Relations
+  vehicles Vehicle[]
+}
+
+model Type {
+  id String @id @default(cuid())
+  label String?
+  description String?
+  logo String?
+  createdAt DateTime @default(now())
+
+  // Relations
+  vehicles Vehicle[]
+}
+
+model Engine {
+  id String @id @default(cuid())
+  label String?
+  description String?
+  createdAt DateTime @default(now())
+
+  // Relations
+  vehicles Vehicle[]
+}
+
+model Rapport {
+  id String @id @default(cuid())
+  label String?
+  description String?
+  createdAt DateTime @default(now())
+
+  // Relations
+  vehicles Vehicle[]
+}
+
+model Vehicle {
+  id String @id @default(cuid())
+  matricule String
+  description String?
+  seats Int
+  image String?
+  categoryId String
+  typeId String
+  engineId String
+  rapportId String
+  createdAt DateTime @default(now())
+
+  // Relations
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  type Type @relation(fields: [typeId], references: [id], onDelete: Cascade)
+  engine Engine @relation(fields: [engineId], references: [id], onDelete: Cascade)
+  rapport Rapport @relation(fields: [rapportId], references: [id], onDelete: Cascade)
+}
+
+model Reservation {
+  id String @id @default(cuid())
+  startDate DateTime
+  endDate DateTime
+  paidRef String
+  userId String
+  createdAt DateTime @default(now())
+
+  // Relations
+  invoices Invoice[]
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Invoice {
+  id String @id @default(cuid())
+  reference String
+  reservationId String
+  createdAt DateTime @default(now())
+
+  // Relations
+  reservation Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+}
