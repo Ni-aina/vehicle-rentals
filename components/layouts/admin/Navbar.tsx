@@ -1,11 +1,10 @@
 "use client";
 
-import { Bell, LogOut, UserCircle } from "lucide-react";
+import { Bell } from "lucide-react";
 import { ToggleDarkMode } from "../../ui/ToggleDarkMode";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 export const NavBar = () => {
-
-    const handleLogOut = ()=> alert("Logged out");
 
     return (
         <div className="flex flex-wrap justify-between gap-5 bg-border p-4 rounded-md">
@@ -14,11 +13,9 @@ export const NavBar = () => {
                 <ToggleDarkMode />
             </div>
             <div className="flex flex-wrap gap-3 items-center">
-                <UserCircle size={20} />
-                <p className="hidden md:block">Ni aina</p>
-                <button onClick={handleLogOut}>
-                    <LogOut size={20} />
-                </button>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
             </div>
         </div>
     );
