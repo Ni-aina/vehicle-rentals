@@ -8,7 +8,7 @@ interface User {
     actions: string;
 }
 
-export const Body = () => {
+export const ReservationBody = () => {
 
     const columns: Column<User>[] = [
         { header: "First name", accessor: "firstName" },

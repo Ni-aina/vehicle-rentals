@@ -84,19 +84,19 @@ export const Sidebar = ()=> {
             <div className="flex">
                 <ul>
                     <li className="mt-4">
-                        <Link href="/admin" className={`${linkStyle} ${pathname==="/admin" && "text-pink-600"}`}>
+                        <Link href="/admin" className={`${linkStyle} ${pathname==="/admin" && "text-pink-600"}`} prefetch>
                             <LayoutDashboardIcon size={20} />
                             {isFullScreen && "Dashboard"}
                         </Link>
                     </li>
                     <li className="mt-4">
-                        <Link href="/admin/reservations" className={`${linkStyle} ${pathname.startsWith("/admin/reservations") && "text-pink-600"}`}>
+                        <Link href="/admin/reservations" className={`${linkStyle} ${pathname.startsWith("/admin/reservations") && "text-pink-600"}`} prefetch>
                             <Save size={20} />
                             {isFullScreen && "Reservations"}
                         </Link>
                     </li>
                     <li className="mt-4">
-                        <Link href="/admin/invoices" className={`${linkStyle} ${pathname.startsWith("/admin/invoices") && "text-pink-600"}`}>
+                        <Link href="/admin/invoices" className={`${linkStyle} ${pathname.startsWith("/admin/invoices") && "text-pink-600"}`} prefetch>
                             <BookCheck size={20} />
                             {isFullScreen && "Invoices"}
                         </Link>
@@ -114,31 +114,31 @@ export const Sidebar = ()=> {
                             openMenu.openVehicles &&
                             <div className={`${isFullScreen ? 'pl-6' : 'pl-2'}`}>
                                 <li className="mt-2">
-                                    <Link href="/admin/vehicles/list" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/list") && "text-pink-600"}`}>
+                                    <Link href="/admin/vehicles/list" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/list") && "text-pink-600"}`} prefetch>
                                         <List size={20} />
                                         {isFullScreen && "Vehicle list"}
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="/admin/vehicles/categories" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/categories") && "text-pink-600"}`}>
+                                    <Link href="/admin/vehicles/categories" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/categories") && "text-pink-600"}`} prefetch>
                                         <Layers2 size={20} />
                                         {isFullScreen && "Categories"}
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="/admin/vehicles/types" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/types") && "text-pink-600"}`}>
+                                    <Link href="/admin/vehicles/types" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/types") && "text-pink-600"}`} prefetch>
                                         <TypeOutline size={20} />
                                         {isFullScreen && "Types"}
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="/admin/vehicles/rapports" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/rapports") && "text-pink-600"}`}>
+                                    <Link href="/admin/vehicles/rapports" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/rapports") && "text-pink-600"}`} prefetch>
                                         <SlidersVertical size={20} />
                                         {isFullScreen && "Rapports"}
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="/admin/vehicles/engines" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/engines") && "text-pink-600"}`}>
+                                    <Link href="/admin/vehicles/engines" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/engines") && "text-pink-600"}`} prefetch>
                                         <Zap size={20} />
                                         {isFullScreen && "Engines"}
                                     </Link>
@@ -159,13 +159,13 @@ export const Sidebar = ()=> {
                             openMenu.openSettings &&
                             <div className={`${isFullScreen ? 'pl-6' : 'pl-2'}`}>
                                 <li className="mt-2">
-                                    <Link href="/admin/settings/users" className={`${linkStyle} ${pathname.startsWith("/admin/settings/users") && "text-pink-600"}`}>
+                                    <Link href="/admin/settings/users" className={`${linkStyle} ${pathname.startsWith("/admin/settings/users") && "text-pink-600"}`} prefetch>
                                         <IdCard size={20} />
                                         {isFullScreen && "Users"}
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="/admin/settings/account" className={`${linkStyle} ${pathname.startsWith("/admin/settings/account") && "text-pink-600"}`}>
+                                    <Link href="/admin/settings/account" className={`${linkStyle} ${pathname.startsWith("/admin/settings/account") && "text-pink-600"}`} prefetch>
                                         <UserCircle size={20} />
                                         {isFullScreen && "Account"}
                                     </Link>

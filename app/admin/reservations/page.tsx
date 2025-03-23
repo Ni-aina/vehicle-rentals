@@ -1,13 +1,13 @@
-import { Body } from "@/components/reservations/body";
-import { Header } from "@/components/reservations/header";
+import { ReservationBody } from "@/components/reservations/Body";
+import { ReservationHeader } from "@/components/reservations/Header";
 
 const Reservations = ()=> {
 
 
     return (
         <> 
-           <Header />
-           <Body />
+           <ReservationHeader />
+           <ReservationBody />
         </>
     )
 }

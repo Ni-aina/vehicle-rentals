@@ -3,10 +3,11 @@
 import { InputText } from "@/components/InputText";
 import { AddButton } from "@/components/ui/AddButton";
 import { useState } from "react";
+import { InputDate } from "../ui/InputDate";
 
-export const Header = () => {
+export const ReservationHeader = () => {
     const [startDate, setStartDate] = useState<Date | null>(new Date());
-    const [endDate, setEndDate] = useState<Date | null>();
+    const [endDate, setEndDate] = useState<Date | null>(null);
     const [inputSearch, setInputSearch] = useState("");
     const handleInputSearch = (value: string)=> setInputSearch(value);
     return (
@@ -20,21 +21,11 @@ export const Header = () => {
                 <div className="flex flex-wrap gap-3">
                     <div className="flex flex-wrap flex-col gap-3 items-start">
                         <label htmlFor="startDate" className="text-pink-600">Start date</label>
-                        <input 
-                            type="date" 
-                            className="p-2 rounded-md bg-border"
-                            value={startDate?.toISOString().split("T").at(0) || ""}
-                            onChange={e => setStartDate(()=> e.target.value ? new Date(e.target.value) : null)}
-                        />
+                        <InputDate date={startDate} setDate={setStartDate} />
                     </div>
                     <div className="flex flex-wrap flex-col gap-3 items-start">
                         <label htmlFor="endDate" className="text-pink-600">End date</label>
-                        <input 
-                            type="date" 
-                            className="p-2 rounded-md bg-border"
-                            value={endDate?.toISOString().split("T").at(0) || ""}
-                            onChange={e => setEndDate(()=> e.target.value ? new Date(e.target.value) : null)}
-                        />
+                        <InputDate date={endDate} setDate={setEndDate}/>
                     </div>
                 </div>
             </div>
