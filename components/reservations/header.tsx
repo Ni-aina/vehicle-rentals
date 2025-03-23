@@ -1,18 +1,18 @@
 "use client";
 
-import { InputText } from "@/components/InpoutText";
+import { InputText } from "@/components/InputText";
 import { AddButton } from "@/components/ui/AddButton";
 import { useState } from "react";
 
 export const Header = () => {
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState<Date | null>(new Date());
     const [endDate, setEndDate] = useState<Date | null>();
     const [inputSearch, setInputSearch] = useState("");
     const handleInputSearch = (value: string)=> setInputSearch(value);
     return (
         <div className="flex flex-wrap justify-between gap-7 items-end">
             <div className="flex justify-center gap-3 items-center">
-                <AddButton link="/admin/reservations"/>
+                <AddButton link="/admin/reservations/add"/>
                 <h1 className="text-xl">Reservations</h1>
             </div>
             <div className="flex flex-wrap gap-4 items-end flex-auto justify-end">
@@ -23,8 +23,8 @@ export const Header = () => {
                         <input 
                             type="date" 
                             className="p-2 rounded-md bg-border"
-                            value={startDate.toISOString().split("T").at(0)}
-                            onChange={e => setStartDate(new Date(e.target.value))}
+                            value={startDate?.toISOString().split("T").at(0) || ""}
+                            onChange={e => setStartDate(()=> e.target.value ? new Date(e.target.value) : null)}
                         />
                     </div>
                     <div className="flex flex-wrap flex-col gap-3 items-start">
@@ -33,7 +33,7 @@ export const Header = () => {
                             type="date" 
                             className="p-2 rounded-md bg-border"
                             value={endDate?.toISOString().split("T").at(0) || ""}
-                            onChange={e => setEndDate(new Date(e.target.value))}
+                            onChange={e => setEndDate(()=> e.target.value ? new Date(e.target.value) : null)}
                         />
                     </div>
                 </div>

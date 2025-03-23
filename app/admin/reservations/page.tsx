@@ -1,6 +1,5 @@
-import { Body } from "./_components/body";
-import { Header } from "./_components/header";
-
+import { Body } from "@/components/reservations/body";
+import { Header } from "@/components/reservations/header";
 
 const Reservations = ()=> {
 
