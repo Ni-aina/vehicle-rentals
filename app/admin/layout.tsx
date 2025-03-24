@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Sidebar } from "@/components/layouts/admin/Sidebar";
+import Sidebar from "@/components/layouts/admin/Sidebar";
 import { NavBar } from "@/components/layouts/admin/Navbar";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
