@@ -4,7 +4,7 @@ import { Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const ToggleDarkMode = ()=> {
-  const [darkMode, setDarkMode] = useState<String>();
+  const [darkMode, setDarkMode] = useState<string>();
   const toggleDarkMode = ()=> setDarkMode(prevMode => prevMode === "light" ? "dark" : "light");
 
   useEffect(()=> {

@@ -4,7 +4,7 @@ import {
     UserSquare 
 } from "lucide-react";
 
-const Dashboard = ()=> {
+const AdminDashboardPage = ()=> {
     return (
         <>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
@@ -66,4 +66,4 @@ const Dashboard = ()=> {
     )
 }
 
-export default Dashboard;
+export default AdminDashboardPage;

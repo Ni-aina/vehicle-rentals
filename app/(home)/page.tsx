@@ -1,7 +1,7 @@
 import { ToggleDarkMode } from "@/components/ui/ToggleDarkMode";
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
-const Home = async ()=> {
+const HomePage = async ()=> {
 
   return (
    <div className="flex justify-end h-full p-5">
@@ -23,4 +23,4 @@ const Home = async ()=> {
   );
 }
 
-export default Home;
+export default HomePage;

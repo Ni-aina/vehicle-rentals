@@ -1,14 +1,12 @@
 import { ReactNode } from "react";
 import Sidebar from "@/components/layouts/admin/Sidebar";
 import { NavBar } from "@/components/layouts/admin/Navbar";
-import { currentUser } from "@clerk/nextjs/server";
+import { checkRole } from "@/utils/roles";
 import { redirect } from "next/navigation";
 
 const AdminLayout = async ({ children } : { children: ReactNode }) => {
-    const user = await currentUser();
-
-    if (!user) redirect("/");
-
+    const isAdmin = await checkRole('admin');
+    if (!isAdmin) redirect("/");
     return (
         <main className="grid grid-cols-[auto_1fr] p-4 gap-4">
             <Sidebar />

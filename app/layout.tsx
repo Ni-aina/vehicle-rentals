@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: "vehicle rentals management",
 };
 
-const Layout = ({
+const RootLayout = ({
   children,
 } : {
   children: React.ReactNode;
@@ -37,4 +37,4 @@ const Layout = ({
   );
 }
 
-export default Layout;
+export default RootLayout;
