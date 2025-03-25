@@ -1,11 +1,15 @@
+import { NavbarLayout } from "@/components/layouts/Navbar";
 import { ReactNode } from "react";
 
-const HomeLayout = async ({ children } : { children: ReactNode}) => {
+const HomeLayout = async ({ children }: { children: ReactNode }) => {
 
     return (
-        <main>
-           {children} 
-        </main>
+        <div className="p-3">
+            <NavbarLayout />
+            <main>
+                {children}
+            </main>
+        </div>
     );
 }
 

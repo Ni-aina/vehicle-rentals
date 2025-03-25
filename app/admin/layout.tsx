@@ -5,7 +5,7 @@ import { checkRole } from "@/utils/roles";
 import { redirect } from "next/navigation";
 
 const AdminLayout = async ({ children } : { children: ReactNode }) => {
-    const isAdmin = await checkRole('admin');
+    const isAdmin = await checkRole("ADMIN");
     if (!isAdmin) redirect("/");
     return (
         <main className="grid grid-cols-[auto_1fr] p-4 gap-4">

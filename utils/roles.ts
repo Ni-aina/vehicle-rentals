@@ -1,7 +1,8 @@
+import { getdbUserByClerkId } from '@/app/actions/user.action'
 import { Roles } from '@/types/globals'
-import { auth } from '@clerk/nextjs/server'
 
 export const checkRole = async (role: Roles) => {
-  const { sessionClaims } = await auth();
-  return sessionClaims?.metadata?.role === role;
+  const { success, dbUser } = await getdbUserByClerkId();
+  if (!success) return null;
+  return dbUser?.role.some(permission => permission === role);
 }

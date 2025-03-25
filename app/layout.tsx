@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import { createUser } from "./actions/user.action";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,11 +20,14 @@ export const metadata: Metadata = {
   description: "vehicle rentals management",
 };
 
-const RootLayout = ({
+const RootLayout = async ({
   children,
 } : {
   children: React.ReactNode;
 }) => {
+
+  const { userId } = await auth();
+  if (userId) await createUser();
 
   return (
     <ClerkProvider>
