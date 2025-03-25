@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const AddButton = ({ link }: { link: string }) => {
+export const AddLink = ({ link }: { link: string }) => {
     return (
         <Link href={link}>
             <button 

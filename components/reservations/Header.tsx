@@ -1,7 +1,7 @@
 "use client";
 
 import { InputText } from "@/components/InputText";
-import { AddButton } from "@/components/ui/AddButton";
+import { AddLink } from "@/components/ui/AddLink";
 import { useState } from "react";
 import { InputDate } from "../ui/InputDate";
 
@@ -13,7 +13,7 @@ export const ReservationHeader = () => {
     return (
         <div className="flex flex-wrap justify-between gap-7 items-end">
             <div className="flex justify-center gap-3 items-center">
-                <AddButton link="/admin/reservations/add"/>
+                <AddLink link="/admin/reservation/add"/>
                 <h1 className="text-xl">Reservations</h1>
             </div>
             <div className="flex flex-wrap gap-4 items-end flex-auto justify-end">

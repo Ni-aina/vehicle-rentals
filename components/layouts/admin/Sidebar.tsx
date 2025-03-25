@@ -101,9 +101,9 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li className="mt-4">
-                        <Link href="/admin/reservations" className={`${linkStyle} ${pathname.startsWith("/admin/reservations") && "text-pink-600"}`}>
+                        <Link href="/admin/reservation" className={`${linkStyle} ${pathname.startsWith("/admin/reservations") && "text-pink-600"}`}>
                             <Save size={20} />
-                            {isFullScreen && "Reservations"}
+                            {isFullScreen && "Reservation"}
                         </Link>
                     </li>
                     <li className="mt-4">
@@ -131,27 +131,27 @@ const Sidebar = () => {
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="/admin/vehicles/categories" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/categories") && "text-pink-600"}`}>
+                                    <Link href="/admin/vehicles/category" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/category") && "text-pink-600"}`}>
                                         <Layers2 size={20} />
                                         {isFullScreen && "Categories"}
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="/admin/vehicles/types" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/types") && "text-pink-600"}`}>
+                                    <Link href="/admin/vehicles/type" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/types") && "text-pink-600"}`}>
                                         <TypeOutline size={20} />
                                         {isFullScreen && "Types"}
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="/admin/vehicles/rapports" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/rapports") && "text-pink-600"}`}>
+                                    <Link href="/admin/vehicles/rapport" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/rapports") && "text-pink-600"}`}>
                                         <SlidersVertical size={20} />
-                                        {isFullScreen && "Rapports"}
+                                        {isFullScreen && "Rapport"}
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="/admin/vehicles/engines" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/engines") && "text-pink-600"}`}>
+                                    <Link href="/admin/vehicles/engine" className={`${linkStyle} ${pathname.startsWith("/admin/vehicles/engine") && "text-pink-600"}`}>
                                         <Zap size={20} />
-                                        {isFullScreen && "Engines"}
+                                        {isFullScreen && "Engine"}
                                     </Link>
                                 </li>
                             </div>
