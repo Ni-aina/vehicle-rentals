@@ -83,7 +83,7 @@ const Sidebar = () => {
                     <Menu />
                 </button>
             </div>
-            <div className="flex justify-center my-2">
+            <div className="flex justify-center mb-2">
                 <Image
                     className="rounded-full"
                     src="/logo/car.png"

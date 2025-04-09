@@ -14,7 +14,7 @@ export const Table = <T,>({ columns, data }: TableProps<T>) => {
                 </thead>
                 <tbody>
                     {
-                        data.map((row, indexRow)=> 
+                        data.map((row: any, indexRow)=> 
                             <tr key={indexRow} className={`${indexRow%2 === 0 && 'bg-gray-400'}`}>
                                 {
                                     columns.map((column, index) => 

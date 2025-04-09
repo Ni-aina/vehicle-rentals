@@ -1,23 +1,16 @@
 import { Table } from "@/components/Table";
-import { Column } from "@/types/table";
-
-interface User {
-    firstName: string;
-    startedAt: string;
-    vehicle: string;
-    actions: string;
-}
+import { Column, UserType } from "@/types/table";
 
 export const ReservationBody = () => {
 
-    const columns: Column<User>[] = [
+    const columns: Column<UserType>[] = [
         { header: "First name", accessor: "firstName" },
         { header: "Started at", accessor: "startedAt" },
         { header: "Vehicle", accessor: "vehicle" },
         { header: "Actions", accessor: "actions" },
     ];
 
-    const data: User[] = [
+    const data: UserType[] = [
         { firstName: "Ni", startedAt: "09-02-2024", vehicle: "Toyota", actions: "..." },
         { firstName: "John", startedAt: "02-03-2025", vehicle: "Sprinter", actions: "..." },
         { firstName: "Jane", startedAt: "05-02-2025", vehicle: "BT-50", actions: "..." },
